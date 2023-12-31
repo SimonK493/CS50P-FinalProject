@@ -1,10 +1,6 @@
 from exercise import Exercise
 import csv
 
-
-
-def hello():
-    ...
     
 def main():
     ...
