@@ -15,10 +15,14 @@ def choose_action(n):
 
 
 def add_exercise():
-    ...
+    exercise_name = input("Enter the name: ")
+    exercise_weight = int(input("Enter your weight"))
+    exercise_repetitions = int(input("Enter the number of repetitions: "))
+
 
 def change_exercise():
-    ...
+    see_exercises()
+    change = int(input("Which exercise you want to change? "))
 
 def see_exercises():
     ...

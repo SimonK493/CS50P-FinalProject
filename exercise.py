@@ -21,16 +21,15 @@ class Exercise:
     
     @weight.setter
     def weight(self, weight):
-        if weight > 0:
+        if weight >= 0:
             self._weight = weight
 
     @property
     def repetitions(self):
         return self._repetitions
     
-    @weight.setter
-    def weight(self, repetitions):
-        if repetitions > 0:
+    @repetitions.setter
+    def repetitions(self, repetitions):
+        if repetitions >= 0:
             self._repetitions = repetitions
-        
         
