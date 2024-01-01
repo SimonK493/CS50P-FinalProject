@@ -14,10 +14,23 @@ class Exercise:
             return False
         else:
             self._name = name
+
+    @property
+    def weight(self):
+        return self._weight
+    
+    @weight.setter
+    def weight(self, weight):
+        if weight > 0:
+            self._weight = weight
+
+    @property
+    def repetitions(self):
+        return self._repetitions
+    
+    @weight.setter
+    def weight(self, repetitions):
+        if repetitions > 0:
+            self._repetitions = repetitions
         
-
-e = Exercise("Übung 1")
-
-e.name = "ddd"
-
-print(e.name)
+        
