@@ -11,7 +11,8 @@ def choose_action(n):
         case 3:
             return see_exercises()
         case _:
-            print("This was an invalid Action number, try again")
+            print("This was an invalid action number, try again")
+
 
 def add_exercise():
     ...
@@ -26,6 +27,7 @@ def see_exercises():
 
 def actions_define():
     print("Actions:\n1: Add an exercise\n2: Change an existing Exercise\n3: Give out your exercises")
+
 def main():
     actions_define()
     while True:
@@ -36,6 +38,8 @@ def main():
             print("Please enter a valid number")
             pass
         print(action)
+
+
 
 if __name__ == "__main__":
     print("Hello")
