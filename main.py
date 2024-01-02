@@ -32,7 +32,7 @@ def add_exercise():
                 return True
         except FileNotFoundError:
             with open("exercises.csv", "a", newline = "") as file:
-                writer = csv.DictWriter(file, fieldnames = ["name", "weight", "repetitions"])
+                writer = csv.DictWriter(file, fieldnames = ["name", "weight", "repetitions", "sets"])
                 writer.writeheader()
             return True
 
@@ -44,34 +44,39 @@ def add_exercise():
                 name = input("Enter the name: ")
                 weight = float(input("Enter your weight(in kg): "))
                 repetitions = int(input("Enter the number of repetitions: "))
-                return name, weight, repetitions
+                sets = int(input("Enter the number of sets: "))
+                return name, weight, repetitions, sets
             except ValueError:
                 print("Wrong input, try again")
                 pass
 
-    exercise_name, exercise_weight, exercise_repetitions = check_input()
+    exercise_name, exercise_weight, exercise_repetitions, exercise_sets = check_input()
     if create(exercise_name):
         with open("exercises.csv", "a", newline = "") as file:
-            writer = csv.DictWriter(file, fieldnames = ["name", "weight", "repetitions"])
-            writer.writerow({"name": exercise_name, "weight": exercise_weight, "repetitions": exercise_repetitions})
+            writer = csv.DictWriter(file, fieldnames = ["name", "weight", "repetitions", "sets"])
+            writer.writerow({"name": exercise_name, "weight": exercise_weight, "repetitions": exercise_repetitions, "sets": exercise_sets})
         return f"The exercise {exercise_name} was created"
     else:
         return f"The exercise with the name {exercise_name} was already created, you can change it by pressing 2"
 
 def change_exercise():
-    see_exercises()
-    change = int(input("Which exercise you want to change? "))
+    change = input("To change an exercise, enter it's name: ")
+    try:
+        ...
+    except ValueError:
+        ...
 
 def see_exercises():
     try:
         with open("exercises.csv", "r") as file:
             reader = csv.DictReader(file)
             for row in reader:
-                print(f"{row['name']}: {row['weight']}kg x {row['repetitions']} repetitions")
+                print(f"{row['name']}: {row['weight']}kg x {row['repetitions']} repetitions / {row['sets']} Set(s)")
     except FileNotFoundError:
-        return "You have no exercise defined yet"
+        print("You have no exercises defined yet")
+        
     
-    user_input = input("if you want to go on press enter")
+    _ = input("if you want to go on press enter")
 
 def actions_define():
     print("Actions:\n1: Add an exercise\n2: Change an existing Exercise\n3: Give out your exercises\n0: Stops the program")
@@ -81,7 +86,7 @@ def csv_to_class():
         with open("exercise.csv", "r") as file:
             reader = csv.DictReader(file)
             for row in reader:
-                row["name"] = Exercise(row["name"], row["weight"], row["repetitions"])
+                row["name"] = Exercise(row["name"], row["weight"], row["repetitions"], row["sets"])
     except FileNotFoundError:
         pass
 
