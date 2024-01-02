@@ -84,7 +84,7 @@ def csv_to_class():
         with open("exercise.csv", "r") as file:
             reader = csv.DictReader(file)
             for row in reader:
-                row["name"] = Exercise(row["name"], row["weight"], row["repetitions"])import time
+                row["name"] = Exercise(row["name"], row["weight"], row["repetitions"])
 
 def choose_action(n):
     match n:
