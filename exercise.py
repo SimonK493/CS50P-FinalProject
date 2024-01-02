@@ -1,5 +1,5 @@
 class Exercise:
-    def __init__(self, name, weight = 0, repetitions = 0, sets = 1):
+    def __init__(self, name, weight = 0, repetitions = 1, sets = 1):
         self.name = name
         self.weight = weight
         self.repetitions = repetitions
@@ -30,7 +30,7 @@ class Exercise:
     
     @repetitions.setter
     def repetitions(self, repetitions):
-        if repetitions >= 0:
+        if repetitions >= 1:
             self._repetitions = repetitions
     
     @property
