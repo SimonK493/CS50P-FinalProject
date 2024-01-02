@@ -77,14 +77,13 @@ def actions_define():
     print("Actions:\n1: Add an exercise\n2: Change an existing Exercise\n3: Give out your exercises\n0: Stops the program")
 
 def csv_to_class():
-    file_exists = exists("exercise.csv")
-    if not file_exists:
-        return True
-    else:
+    try:
         with open("exercise.csv", "r") as file:
             reader = csv.DictReader(file)
             for row in reader:
                 row["name"] = Exercise(row["name"], row["weight"], row["repetitions"])
+    except FileNotFoundError:
+        pass
 
 def main():
     while True:
