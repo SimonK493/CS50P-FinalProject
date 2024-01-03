@@ -1,4 +1,3 @@
-from exercise import Exercise
 import csv
 import time
 import prettytable
@@ -153,15 +152,6 @@ def see_exercises():
 def actions_define():
     print("Actions:\n1: Add an exercise\n2: Change an existing Exercise\n3: Give out your exercises\n0: Stops the program")
 
-def csv_to_class():
-    try:
-        with open("exercise.csv", "r") as file:
-            reader = csv.DictReader(file)
-            for row in reader:
-                row["name"] = Exercise(row["name"], row["weight"], row["repetitions"], row["sets"])
-    except FileNotFoundError:
-        pass
-
 def main():
     while True:
         try:
@@ -176,12 +166,9 @@ def main():
             print("Please enter a number")
             pass
 
-
-
 if __name__ == "__main__":
     print("Hello")
-    time.sleep(0.5)
-    csv_to_class()
+    time.sleep(0.2)
     actions_define()
     main()
     print("Goodbye")
