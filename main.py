@@ -37,8 +37,6 @@ def add_exercise():
                 writer.writeheader()
             return True
 
-
-
     def check_input():
         while True:
             try:
